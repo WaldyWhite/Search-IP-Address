@@ -16,4 +16,4 @@ All functions are located in separate tabs between which you can quickly switch.
 
 <img src="readmyImg/SearchIParp.JPG"/>
 
-<img src="readmyImg/SearchIPping.JPG"/>
+<img src="readmyImg/searchIPping.JPG"/>
