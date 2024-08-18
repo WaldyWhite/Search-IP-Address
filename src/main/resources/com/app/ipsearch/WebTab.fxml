@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+
+<?import javafx.scene.web.WebView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+
+<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.app.ipsearch.WebController" styleClass="vBox">
+    <HBox>
+        <TextField fx:id="ipTextField" promptText="Enter IP-Address" prefWidth="650.0"/>
+        <Button text="Load Page" onAction="#loadWebPage"/>
+    </HBox>
+    <WebView fx:id="webView"/>
+</VBox>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.TextField?>
+
+<?import javafx.scene.layout.HBox?>
+<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.app.ipsearch.ARPController" >
+    <HBox styleClass="hBox">
+        <TextField fx:id="macTextField" promptText="Enter MAC-Address" prefWidth="150.0"/>
+        <Button text="Search MAC" onAction="#findMac"/>
+        <Button text="Run ARP -a" onAction="#runArpCommand"/>
+        <Button text="Clear" onAction="#clearTextarea"/>
+    </HBox>
+    <TextArea fx:id="arpOutputArea" prefHeight="300.0" prefWidth="500.0" styleClass="textArea"/>
+</VBox>

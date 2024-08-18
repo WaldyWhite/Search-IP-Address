@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<?import javafx.scene.layout.StackPane?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" stylesheets="@styles.css" fx:controller="com.app.ipsearch.MainController" styleClass="borPaneTop">
+    <top>
+        <TabPane fx:id="tabPane" tabClosingPolicy="UNAVAILABLE" styleClass="tab-pane" >
+            <Tab text="ARP"  styleClass="tab">
+                <BorderPane fx:id="arpTab" styleClass="borPane" />
+            </Tab>
+            <Tab text="Ping" styleClass="tab" >
+                <BorderPane fx:id="pingTab" styleClass="borPane" />
+            </Tab>
+            <Tab text="Web" styleClass="tab" >
+                <BorderPane fx:id="webTab" styleClass="borPane" />
+            </Tab>
+            <Tab text="Network" styleClass="tab" >
+                <BorderPane fx:id="networkTab" styleClass="borPane"/>
+            </Tab>
+        </TabPane>
+    </top>
+</BorderPane>
+
