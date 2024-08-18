@@ -52,9 +52,9 @@ public class ARPController {
 
     @FXML
     public void findMac() {
-        // Check that the IP address is not empty
+        // Check that the MAC address is not empty
         String macAddress = macTextField.getText();
-        if (macAddress == null || macAddress.isEmpty() || !isValidMacAddress(macAddress) ){
+        if (macAddress == null || macAddress.isEmpty() || !isValidMacAddress(macAddress)) {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Invalid MAC-Address");
             alert.setHeaderText(null);
@@ -68,10 +68,12 @@ public class ARPController {
 
     }
 
+    // Method for Mac address validation (optional)
     private boolean isValidMacAddress(String mac) {
         String macPattern = "^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$|^([0-9A-Fa-f]{12})$";
         return mac.matches(macPattern);
     }
+
     @FXML
     public void cleanTextarea() {
         setFindMac = false;

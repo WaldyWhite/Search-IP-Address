@@ -63,7 +63,7 @@ public class PingController {
             pingOutputArea.setText(pingResult.toString());
 
         } catch (Exception e) {
-            e.printStackTrace();
+            pingOutputArea.setText(e.getMessage());
         }
     }
 
@@ -101,7 +101,7 @@ public class PingController {
                     Platform.runLater(() -> pingOutputArea.appendText(finalLine + "\n"));
                 }
             } catch (IOException e) {
-                e.printStackTrace();
+                pingOutputArea.setText(e.getMessage());
             }
         });
 
