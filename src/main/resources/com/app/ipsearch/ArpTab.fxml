@@ -6,12 +6,25 @@
 <?import javafx.scene.control.TextField?>
 
 <?import javafx.scene.layout.HBox?>
+<?import javafx.geometry.Insets?>
 <VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.app.ipsearch.ARPController" >
     <HBox styleClass="hBox">
         <TextField fx:id="macTextField" promptText="Enter MAC-Address" prefWidth="150.0"/>
-        <Button text="Search MAC" onAction="#findMac"/>
-        <Button text="Run ARP -a" onAction="#runArpCommand"/>
-        <Button text="Clear" onAction="#clearTextarea"/>
+        <Button text="Search MAC" onAction="#findMac">
+            <HBox.margin>
+                <Insets left="5"/>
+            </HBox.margin>
+        </Button>
+        <Button text="Run ARP -a" onAction="#runArpCommand">
+            <HBox.margin>
+                <Insets left="5"/>
+            </HBox.margin>
+        </Button>
+        <Button text="Clean" onAction="#cleanTextarea">
+            <HBox.margin>
+                <Insets left="5"/>
+            </HBox.margin>
+        </Button>
     </HBox>
     <TextArea fx:id="arpOutputArea" prefHeight="300.0" prefWidth="500.0" styleClass="textArea"/>
 </VBox>

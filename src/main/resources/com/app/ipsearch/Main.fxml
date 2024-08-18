@@ -14,12 +14,13 @@
             <Tab text="Ping" styleClass="tab" >
                 <BorderPane fx:id="pingTab" styleClass="borPane" />
             </Tab>
-            <Tab text="Web" styleClass="tab" >
-                <BorderPane fx:id="webTab" styleClass="borPane" />
-            </Tab>
             <Tab text="Network" styleClass="tab" >
                 <BorderPane fx:id="networkTab" styleClass="borPane"/>
             </Tab>
+            <Tab text="Web" styleClass="tab" >
+                <BorderPane fx:id="webTab" styleClass="borPane" />
+            </Tab>
+
         </TabPane>
     </top>
 </BorderPane>

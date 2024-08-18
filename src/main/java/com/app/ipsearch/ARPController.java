@@ -73,7 +73,7 @@ public class ARPController {
         return mac.matches(macPattern);
     }
     @FXML
-    public void clearTextarea() {
+    public void cleanTextarea() {
         setFindMac = false;
         macTextField.setText("");
         arpOutputArea.setText("");

@@ -31,7 +31,7 @@ public class PingController {
         String ipAddress = ipTextField.getText(); // Get IP address from text field
 
         // Check that the IP address is not empty
-        if (ipAddress == null || ipAddress.isEmpty() || !isValidIPAddress(ipAddress) ){
+        if (ipAddress == null || ipAddress.isEmpty() || !isValidIPAddress(ipAddress)) {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Invalid IP Address");
             alert.setHeaderText(null);
@@ -72,7 +72,7 @@ public class PingController {
         String ipAddress = ipTextField.getText();
 
         // Check that the IP address is not empty
-        if (ipAddress == null || ipAddress.isEmpty() || !isValidIPAddress(ipAddress) ){
+        if (ipAddress == null || ipAddress.isEmpty() || !isValidIPAddress(ipAddress)) {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Invalid IP Address");
             alert.setHeaderText(null);
@@ -124,10 +124,18 @@ public class PingController {
         // Disable the stop ping button
         stopPingButton.setDisable(true);
     }
+
     // Method for IP address validation (optional)
     private boolean isValidIPAddress(String ip) {
         String ipPattern =
                 "^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$";
         return ip.matches(ipPattern);
+    }
+
+    @FXML
+    public void cleanTextArea() {
+        ipTextField.setText("");
+        pingOutputArea.setText("");
+
     }
 }

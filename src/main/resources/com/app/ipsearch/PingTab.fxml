@@ -6,12 +6,30 @@
 <?import javafx.scene.layout.VBox?>
 
 <?import javafx.scene.layout.HBox?>
+<?import javafx.geometry.Insets?>
 <VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.app.ipsearch.PingController" styleClass="vBox">
     <HBox styleClass="hBox">
         <TextField fx:id="ipTextField" promptText="Enter IP-Address for Ping" prefWidth="150.0"/>
-        <Button text="Ping" onAction="#runPing"/>
-        <Button text="Ping -t" onAction="#runPingContinuous"/>
-        <Button fx:id="stopPingButton" text="Stop Ping" onAction="#stopPing" disable="true"/>
+        <Button text="Ping" onAction="#runPing">
+            <HBox.margin>
+                <Insets left="5"/>
+            </HBox.margin>
+        </Button>
+        <Button text="Ping -t" onAction="#runPingContinuous">
+            <HBox.margin>
+                <Insets left="5"/>
+            </HBox.margin>
+        </Button>
+        <Button text="Clean" onAction="#cleanTextArea">
+            <HBox.margin>
+                <Insets left="5"/>
+            </HBox.margin>
+        </Button>
+        <Button fx:id="stopPingButton" text="Stop Ping -t" onAction="#stopPing" disable="true" style="-fx-color: #ef3326">
+            <HBox.margin>
+                <Insets left="5"/>
+            </HBox.margin>
+        </Button>
     </HBox>
     <TextArea fx:id="pingOutputArea" styleClass="textArea" prefHeight="300.0" prefWidth="500.0"/>
 </VBox>

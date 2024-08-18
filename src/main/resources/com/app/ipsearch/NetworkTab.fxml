@@ -6,11 +6,24 @@
 
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.StackPane?>
+<?import javafx.geometry.Insets?>
 <VBox prefWidth="100" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.app.ipsearch.NetworkController" styleClass="vbox">
     <VBox styleClass="vboxIn">
-        <TextField fx:id="ipTextField" promptText="Enter new IP-Address" />
-        <TextField fx:id="subnetMaskField" promptText="Enter the Subnet Mask" />
-        <TextField fx:id="gatewayField" promptText="Enter Gateway" />
+        <TextField fx:id="ipTextField" promptText="Enter new IP-Address" >
+            <VBox.margin>
+                <Insets bottom="5"/>
+            </VBox.margin>
+        </TextField>
+        <TextField fx:id="subnetMaskField" promptText="Enter the Subnet Mask" >
+            <VBox.margin>
+                <Insets bottom="5"/>
+            </VBox.margin>
+        </TextField>
+        <TextField fx:id="gatewayField" promptText="Enter Gateway" >
+            <VBox.margin>
+                <Insets bottom="5"/>
+            </VBox.margin>
+        </TextField>
     </VBox>
     <StackPane>
         <Button text="Apply settings" onAction="#applyNetworkSettings"/>
