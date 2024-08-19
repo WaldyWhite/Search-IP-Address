@@ -7,7 +7,9 @@
 
 <?import javafx.scene.layout.HBox?>
 <?import javafx.geometry.Insets?>
-<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.app.ipsearch.ARPController" >
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.Label?>
+<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.app.ipsearch.ARPController">
     <HBox styleClass="hBox">
         <TextField fx:id="macTextField" promptText="Enter MAC-Address" prefWidth="150.0"/>
         <Button text="Search MAC" onAction="#findMac">
@@ -26,5 +28,25 @@
             </HBox.margin>
         </Button>
     </HBox>
-    <TextArea fx:id="arpOutputArea" prefHeight="300.0" prefWidth="500.0" styleClass="textArea"/>
+    <Text>
+
+    </Text>
+    <VBox styleClass="bordered-hbox">
+        <HBox spacing="10" alignment="CENTER">
+            <Label text="IP-Address:" styleClass="labeTop" prefWidth="200.0"/>
+            <Label text="MAC-Address:" styleClass="labeTop" prefWidth="200.0"/>
+            <Label text="Typ:" styleClass="labeTop" prefWidth="200.0"/>
+        </HBox>
+        <HBox>
+            <Label fx:id="ipAddressOut" styleClass="label" prefWidth="100.0"/>
+            <Label fx:id="macAddressOut" styleClass="label" prefWidth="100.0"/>
+            <Label fx:id="typeOut" styleClass="label" prefWidth="400.0"/>
+            <Button fx:id="myButton" text="Кнопка" visible="false"/>
+        </HBox>
+    </VBox>
+    <TextArea prefHeight="250.0" prefWidth="500.0" styleClass="textArea" fx:id="arpOutputArea" editable="false">
+        <VBox.margin>
+            <Insets top="5"/>
+        </VBox.margin>
+    </TextArea>
 </VBox>

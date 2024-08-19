@@ -39,12 +39,26 @@
 .hBox{
 -fx-padding: 0 0 10 0;
 }
+
 .vbox {
     -fx-padding: 0 100 0 100;
     -fx-pref-width: 300px;
     -fx-min-width: 200px;
     -fx-max-width: 400px;
 }
+
 .vboxIn {
     -fx-padding: 0 0 10 0;
 }
+
+.bordered-hbox {
+    -fx-border-color: lightgray;
+    -fx-border-width: 1;
+    -fx-padding: 5;
+    -fx-border-radius: 5;
+}
+
+.labeTop {
+    -fx-text-fill: rgb(0,0,0,0.5);
+
+ }

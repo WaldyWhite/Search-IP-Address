@@ -2,17 +2,23 @@ package com.app.ipsearch;
 
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 public class ARPController {
+    @FXML
+    public Label typeOut;
 
-    boolean setFindMac = false;
+    @FXML
+    public Label ipAddressOut;
+
+    @FXML
+    public Label macAddressOut;
+
+    @FXML
+    private Button myButton;
 
     @FXML
     private TextArea arpOutputArea;
@@ -22,6 +28,42 @@ public class ARPController {
 
     @FXML
     public void runArpCommand() {
+
+        // Implementierung des ARP -a-Befehls
+        try {
+            ProcessBuilder processBuilder = new ProcessBuilder("arp", "-a");
+            Process process = processBuilder.start();
+
+            BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+            StringBuilder output = new StringBuilder();
+            String line;
+            while ((line = reader.readLine()) != null) {
+
+                output.append(line).append("\n");
+            }
+
+            arpOutputArea.setText(output.toString());
+        } catch (Exception e) {
+            arpOutputArea.setText("An error occurred: " + e.getMessage());
+        }
+    }
+
+
+    @FXML
+    public void findMac() {
+
+        // Check that the MAC address is not empty
+        String macAddress = macTextField.getText();
+        if (macAddress == null || macAddress.isEmpty() || !isValidMacAddress(macAddress)) {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Invalid MAC-Address");
+            alert.setHeaderText(null);
+            alert.setContentText("Invalid Mac address entered. Please check and try again.");
+            alert.showAndWait();
+            return;
+        }
+
+        myButton.setVisible(true);
         // Implementierung des ARP -a-Befehls
         try {
             ProcessBuilder processBuilder = new ProcessBuilder("arp", "-a");
@@ -33,38 +75,23 @@ public class ARPController {
             while ((line = reader.readLine()) != null) {
                 //
                 String macTextFieldreplaced = macTextField.getText().replaceAll(":", "-").replaceAll(" ", "");
-                if (setFindMac) {
-
-                    if (line.contains(macTextFieldreplaced.toLowerCase())) {
-                        output.append(line).append("\n");
-                        break;
-                    }
-                } else {
+                if (line.contains(macTextFieldreplaced.toLowerCase())) {
                     output.append(line).append("\n");
+                    break;
                 }
             }
 
-            arpOutputArea.setText(output.toString());
+            String[] parts = output.toString().split(" {3,}");
+            // Receiving parts
+            ipAddressOut.setText(parts[0]);
+            macAddressOut.setText(parts[1]);
+            typeOut.setText(parts[2]);
+
+
         } catch (Exception e) {
             arpOutputArea.setText("An error occurred: " + e.getMessage());
         }
-    }
 
-    @FXML
-    public void findMac() {
-        // Check that the MAC address is not empty
-        String macAddress = macTextField.getText();
-        if (macAddress == null || macAddress.isEmpty() || !isValidMacAddress(macAddress)) {
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Invalid MAC-Address");
-            alert.setHeaderText(null);
-            alert.setContentText("Invalid Mac address entered. Please check and try again.");
-            alert.showAndWait();
-            return;
-        }
-        setFindMac = true;
-        runArpCommand();
-        setFindMac = false;
 
     }
 
@@ -76,9 +103,12 @@ public class ARPController {
 
     @FXML
     public void cleanTextarea() {
-        setFindMac = false;
         macTextField.setText("");
         arpOutputArea.setText("");
+        ipAddressOut.setText("");
+        macAddressOut.setText("");
+        typeOut.setText("");
+        myButton.setVisible(false);
     }
 
 }
