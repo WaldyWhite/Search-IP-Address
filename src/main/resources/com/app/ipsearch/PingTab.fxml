@@ -31,5 +31,6 @@
             </HBox.margin>
         </Button>
     </HBox>
+
     <TextArea fx:id="pingOutputArea" styleClass="textArea" prefHeight="300.0" prefWidth="500.0" editable="false"/>
 </VBox>

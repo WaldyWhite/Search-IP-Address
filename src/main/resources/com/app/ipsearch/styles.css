@@ -51,14 +51,14 @@
     -fx-padding: 0 0 10 0;
 }
 
-.bordered-hbox {
-    -fx-border-color: lightgray;
-    -fx-border-width: 1;
-    -fx-padding: 5;
-    -fx-border-radius: 5;
-}
-
 .labeTop {
     -fx-text-fill: rgb(0,0,0,0.5);
-
+    -fx-padding:  0 0 5 6;
  }
+
+.labe{
+    -fx-padding: 0;
+ }
+
+
+
