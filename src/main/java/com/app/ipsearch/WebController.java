@@ -9,7 +9,7 @@ import javafx.scene.control.Alert;
 public class WebController {
 
     @FXML
-    private TextField ipTextField;
+    private TextField ipAddressField;
 
     @FXML
     private WebView webView;
@@ -17,7 +17,7 @@ public class WebController {
     @FXML
     public void loadWebPage() {
         // Getting text from a text field
-        String ipAddress = ipTextField.getText();
+        String ipAddress = ipAddressField.getText();
         // Generate URL based on IP address
         String url = "http://" + ipAddress;
 
@@ -41,6 +41,14 @@ public class WebController {
                 "^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$";
         return ip.matches(ipPattern);
     }
+
+    @FXML
+    public void setIpAddressField() {
+        ipAddressField.setText(AppModel.ipAddress);
+        System.out.println("this is webCont " + AppModel.ipAddress);
+    }
+
 }
+
 
 

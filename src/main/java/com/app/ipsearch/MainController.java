@@ -5,10 +5,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.Parent;
-import javafx.scene.layout.StackPane;
 
 import java.io.IOException;
-import java.util.Objects;
 
 public class MainController {
 
@@ -35,7 +33,7 @@ public class MainController {
 
             // Loading FXML for the Network tab
             Parent networkContent = FXMLLoader.load(getClass().getResource("NetworkTab.fxml"));
-            networkTab.setCenter(networkContent );
+            networkTab.setCenter(networkContent);
 
         } catch (IOException e) {
             e.printStackTrace();

@@ -1,13 +1,14 @@
 package com.app.ipsearch;
 
-
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 public class ARPController {
+
+    private boolean setFindMac = false;
+
     @FXML
     public Label typeOut;
 
@@ -18,9 +19,6 @@ public class ARPController {
     public Label macAddressOut;
 
     @FXML
-    private Button myButton;
-
-    @FXML
     private TextArea arpOutputArea;
 
     @FXML
@@ -28,7 +26,6 @@ public class ARPController {
 
     @FXML
     public void runArpCommand() {
-
         // Implementierung des ARP -a-Befehls
         try {
             ProcessBuilder processBuilder = new ProcessBuilder("arp", "-a");
@@ -37,21 +34,38 @@ public class ARPController {
             BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
             StringBuilder output = new StringBuilder();
             String line;
-            while ((line = reader.readLine()) != null) {
+            if (setFindMac) {
+                while ((line = reader.readLine()) != null) {
+                    //
+                    String macTextFieldreplaced = macTextField.getText().replaceAll(":", "-").replaceAll(" ", "");
+                    if (line.contains(macTextFieldreplaced.toLowerCase())) {
+                        output.append(line).append("\n");
+                        break;
+                    }
+                }
 
-                output.append(line).append("\n");
+                String[] parts = output.toString().split(" {3,}");
+                // Receiving parts
+                saveIpAdress(parts[0].replaceAll(" ", ""));
+
+                ipAddressOut.setText(parts[0].replaceAll(" ", ""));
+                macAddressOut.setText(parts[1].replaceAll(" ", ""));
+                typeOut.setText(parts[2].replaceAll(" ", ""));
+                setFindMac = false;
+
+            } else {
+                while ((line = reader.readLine()) != null) {
+                    output.append(line).append("\n");
+                }
+                arpOutputArea.setText(output.toString());
             }
-
-            arpOutputArea.setText(output.toString());
         } catch (Exception e) {
             arpOutputArea.setText("An error occurred: " + e.getMessage());
         }
     }
 
-
     @FXML
     public void findMac() {
-
         // Check that the MAC address is not empty
         String macAddress = macTextField.getText();
         if (macAddress == null || macAddress.isEmpty() || !isValidMacAddress(macAddress)) {
@@ -63,36 +77,8 @@ public class ARPController {
             return;
         }
 
-        myButton.setVisible(true);
-        // Implementierung des ARP -a-Befehls
-        try {
-            ProcessBuilder processBuilder = new ProcessBuilder("arp", "-a");
-            Process process = processBuilder.start();
-
-            BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
-            StringBuilder output = new StringBuilder();
-            String line;
-            while ((line = reader.readLine()) != null) {
-                //
-                String macTextFieldreplaced = macTextField.getText().replaceAll(":", "-").replaceAll(" ", "");
-                if (line.contains(macTextFieldreplaced.toLowerCase())) {
-                    output.append(line).append("\n");
-                    break;
-                }
-            }
-
-            String[] parts = output.toString().split(" {3,}");
-            // Receiving parts
-            ipAddressOut.setText(parts[0]);
-            macAddressOut.setText(parts[1]);
-            typeOut.setText(parts[2]);
-
-
-        } catch (Exception e) {
-            arpOutputArea.setText("An error occurred: " + e.getMessage());
-        }
-
-
+        setFindMac = true;
+        runArpCommand();
     }
 
     // Method for Mac address validation (optional)
@@ -108,7 +94,11 @@ public class ARPController {
         ipAddressOut.setText("");
         macAddressOut.setText("");
         typeOut.setText("");
-        myButton.setVisible(false);
+    }
+
+    public void saveIpAdress(String ipAdresse) {
+        AppModel appModel = new AppModel();
+        appModel.setIpAddress(ipAdresse);
     }
 
 }

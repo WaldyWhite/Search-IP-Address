@@ -3,10 +3,9 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.VBox?>
-
-<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.geometry.Insets?>
+
 <VBox prefWidth="100" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.app.ipsearch.NetworkController" styleClass="vbox">
     <VBox styleClass="vboxIn">
         <TextField fx:id="ipTextField" promptText="Enter new IP-Address" >
@@ -28,7 +27,5 @@
     <StackPane>
         <Button text="Apply settings" onAction="#applyNetworkSettings"/>
     </StackPane>
-
-
 </VBox>
 

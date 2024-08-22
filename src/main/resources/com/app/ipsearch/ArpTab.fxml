@@ -4,13 +4,11 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.control.TextField?>
-
 <?import javafx.scene.layout.HBox?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.text.Text?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.text.TextFlow?>
+
 <VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.app.ipsearch.ARPController">
     <HBox styleClass="hBox">
         <TextField fx:id="macTextField" promptText="Enter MAC-Address" prefWidth="150.0"/>
@@ -43,16 +41,11 @@
                     <Label fx:id="ipAddressOut" styleClass="label" prefWidth="200.0" prefHeight="10.0"/>
                     <Label fx:id="macAddressOut" styleClass="label" prefWidth="200.0" prefHeight="10.0"/>
                     <Label fx:id="typeOut" styleClass="label" prefWidth="310.0" prefHeight="10.0"/>
-                    <Button fx:id="myButton" text="Save IP" visible="false" >
-                        <HBox.margin>
-                            <Insets bottom="10"/>
-                        </HBox.margin>
-                    </Button>
                 </HBox>
             </VBox>
         </ScrollPane>
     </VBox>
-    <TextArea prefHeight="250.0" prefWidth="500.0" styleClass="textArea" fx:id="arpOutputArea" editable="false">
+    <TextArea prefHeight="250.0" prefWidth="500.0" styleClass="textAreaArp" fx:id="arpOutputArea" editable="false" >
         <VBox.margin>
             <Insets top="5"/>
         </VBox.margin>

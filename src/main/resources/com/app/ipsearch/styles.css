@@ -56,9 +56,13 @@
     -fx-padding:  0 0 5 6;
  }
 
-.labe{
-    -fx-padding: 0;
+.label{
+    -fx-padding: 0 0 5 6;;
  }
+
+.textArea{
+    -fx-control-inner-background: #F4F4F4;
+}
 
 
 

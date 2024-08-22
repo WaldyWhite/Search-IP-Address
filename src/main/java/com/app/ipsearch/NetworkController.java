@@ -58,6 +58,5 @@ public class NetworkController {
         alert.setContentText(content);
         alert.showAndWait();
     }
-
 }
 
