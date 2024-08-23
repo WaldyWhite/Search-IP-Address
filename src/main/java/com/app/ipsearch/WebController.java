@@ -44,8 +44,7 @@ public class WebController {
 
     @FXML
     public void setIpAddressField() {
-        ipAddressField.setText(AppModel.ipAddress);
-        System.out.println("this is webCont " + AppModel.ipAddress);
+        ipAddressField.setText(AppModel.getIpAddress());
     }
 
 }

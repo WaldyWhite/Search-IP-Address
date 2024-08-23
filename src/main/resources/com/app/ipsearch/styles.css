@@ -37,7 +37,7 @@
 }
 
 .hBox{
--fx-padding: 0 0 10 0;
+    -fx-padding: 0 0 10 0;
 }
 
 .vbox {
@@ -51,18 +51,25 @@
     -fx-padding: 0 0 10 0;
 }
 
+.scroll-pane {
+    -fx-border-radius: 4; /* Скругление углов границы */
+    -fx-background-radius: 4; /* Скругление углов фона */
+}
+
+.scroll-pane .viewport {
+    -fx-background-radius: 4; /* Скругление углов содержимого */
+}
+.vBox-scrPane {
+    -fx-padding: 4 10 0 10;
+}
+
 .labeTop {
     -fx-text-fill: rgb(0,0,0,0.5);
-    -fx-padding:  0 0 5 6;
+    -fx-padding:  0 0 0 6;
  }
 
 .label{
     -fx-padding: 0 0 5 6;;
  }
-
-.textArea{
-    -fx-control-inner-background: #F4F4F4;
-}
-
 
 

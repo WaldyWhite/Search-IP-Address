@@ -9,7 +9,7 @@
 
 <VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.app.ipsearch.WebController" styleClass="vBox">
     <HBox>
-        <TextField fx:id="ipAddressField" promptText="Enter IP-Address" prefWidth="650.0"/>
+        <TextField fx:id="ipAddressField" promptText="Enter IP-Address" prefWidth="640.0"/>
         <Button text="Load Page" onAction="#loadWebPage">
             <HBox.margin>
                 <Insets left="5"/>

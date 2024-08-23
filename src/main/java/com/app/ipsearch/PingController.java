@@ -123,6 +123,7 @@ public class PingController {
 
         // Disable the stop ping button
         stopPingButton.setDisable(true);
+        pingOutputArea.setText(pingOutputArea.getText() + "ping -t stopped");
     }
 
     // Method for IP address validation (optional)
@@ -136,6 +137,7 @@ public class PingController {
     public void cleanTextArea() {
         ipTextField.setText("");
         pingOutputArea.setText("");
+
 
     }
 }

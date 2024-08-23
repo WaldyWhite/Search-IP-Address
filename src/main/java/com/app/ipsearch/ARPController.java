@@ -94,6 +94,7 @@ public class ARPController {
         ipAddressOut.setText("");
         macAddressOut.setText("");
         typeOut.setText("");
+        saveIpAdress(null);
     }
 
     public void saveIpAdress(String ipAdresse) {

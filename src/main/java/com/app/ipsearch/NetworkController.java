@@ -2,6 +2,7 @@ package com.app.ipsearch;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 public class NetworkController {
@@ -14,7 +15,6 @@ public class NetworkController {
 
     @FXML
     private TextField gatewayField;
-
 
     @FXML
     public void applyNetworkSettings() {
@@ -57,6 +57,26 @@ public class NetworkController {
         alert.setTitle(title);
         alert.setContentText(content);
         alert.showAndWait();
+    }
+
+    @FXML
+    public void setIpAddressField() {
+        if (AppModel.getIpAddress() == null) {
+            showAlert("Success", "IP address is missing");
+            return;
+        }
+
+        ipTextField.setText(AppModel.getIpAddress());
+        subnetMaskField.setText("255.255.255.0");
+
+    }
+
+
+    @FXML
+    public void cleanTextarea() {
+        ipTextField.setText("");
+        subnetMaskField.setText("");
+        gatewayField.setText("");
     }
 }
 
