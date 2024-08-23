@@ -15,6 +15,6 @@ using a ***MAC address***, as well as options for configuring network settings s
 
 All functions are located in separate tabs between which you can quickly switch.
 
-<img src="readmyImg/SearchIParp.JPG"/>
+<img src="src/main/resources/icons/SearchIParp.JPG"/>
 
-<img src="readmyImg/searchIPping.JPG"/>
+<img src="src/main/resources/icons/searchIPping.JPG"/>
