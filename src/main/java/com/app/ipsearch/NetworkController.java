@@ -5,6 +5,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
+import java.util.Arrays;
+
 public class NetworkController {
 
     @FXML
@@ -65,12 +67,15 @@ public class NetworkController {
             showAlert("Success", "IP address is missing");
             return;
         }
-
+        String[] parts = AppModel.getIpAddress().split("[,\\.\\s]");
+        parts[3] = "001";
+        String getWay = String.format("%s.%s.%s.%s",parts[0],parts[1],parts[2],parts[3]);
         ipTextField.setText(AppModel.getIpAddress());
         subnetMaskField.setText("255.255.255.0");
+        gatewayField.setText(getWay);
+        System.out.println(Arrays.toString(parts));
 
     }
-
 
     @FXML
     public void cleanTextarea() {
