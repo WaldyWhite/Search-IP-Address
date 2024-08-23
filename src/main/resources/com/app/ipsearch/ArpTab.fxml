@@ -30,22 +30,22 @@
     </HBox>
     <VBox styleClass="bordered-hbox">
 
-        <ScrollPane styleClass="scrPane" >
-            <VBox>
+        <ScrollPane styleClass="scroll-pane" >
+            <VBox styleClass="vBox-scrPane">
                 <HBox>
                     <Label text="IP-Address:" styleClass="labeTop" prefWidth="200.0" prefHeight="10.0"/>
                     <Label text="MAC-Address:" styleClass="labeTop" prefWidth="200.0" prefHeight="10.0"/>
-                    <Label text="Typ:" styleClass="labeTop" prefWidth="310.0" prefHeight="10.0"/>
+                    <Label text="Typ:" styleClass="labeTop" prefWidth="250.0" prefHeight="10.0"/>
                 </HBox>
                 <HBox >
                     <Label fx:id="ipAddressOut" styleClass="label" prefWidth="200.0" prefHeight="10.0"/>
                     <Label fx:id="macAddressOut" styleClass="label" prefWidth="200.0" prefHeight="10.0"/>
-                    <Label fx:id="typeOut" styleClass="label" prefWidth="310.0" prefHeight="10.0"/>
+                    <Label fx:id="typeOut" styleClass="label" prefWidth="250.0" prefHeight="10.0"/>
                 </HBox>
             </VBox>
         </ScrollPane>
     </VBox>
-    <TextArea prefHeight="250.0" prefWidth="500.0" styleClass="textAreaArp" fx:id="arpOutputArea" editable="false" >
+    <TextArea prefHeight="255.0" prefWidth="500.0" styleClass=".textArea" fx:id="arpOutputArea" editable="false" >
         <VBox.margin>
             <Insets top="5"/>
         </VBox.margin>

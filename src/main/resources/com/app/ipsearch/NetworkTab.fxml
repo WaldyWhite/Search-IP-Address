@@ -3,29 +3,44 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.layout.StackPane?>
 <?import javafx.geometry.Insets?>
 
-<VBox prefWidth="100" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.app.ipsearch.NetworkController" styleClass="vbox">
+<?import javafx.scene.layout.HBox?>
+<VBox prefWidth="100" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.app.ipsearch.NetworkController"
+      styleClass="vbox">
     <VBox styleClass="vboxIn">
-        <TextField fx:id="ipTextField" promptText="Enter new IP-Address" >
+        <TextField fx:id="ipTextField" promptText="Enter new IP-Address">
             <VBox.margin>
                 <Insets bottom="5"/>
             </VBox.margin>
         </TextField>
-        <TextField fx:id="subnetMaskField" promptText="Enter the Subnet Mask" >
+        <TextField fx:id="subnetMaskField" promptText="Enter the Subnet Mask">
             <VBox.margin>
                 <Insets bottom="5"/>
             </VBox.margin>
         </TextField>
-        <TextField fx:id="gatewayField" promptText="Enter Gateway" >
+        <TextField fx:id="gatewayField" promptText="Enter Gateway">
             <VBox.margin>
                 <Insets bottom="5"/>
             </VBox.margin>
         </TextField>
     </VBox>
-    <StackPane>
-        <Button text="Apply settings" onAction="#applyNetworkSettings"/>
-    </StackPane>
+    <HBox>
+        <Button fx:id="setButton" text="Set" onAction="#setIpAddressField" >
+            <HBox.margin>
+                <Insets right="5" left="8"/>
+            </HBox.margin>
+        </Button>
+        <Button text="Apply settings" onAction="#applyNetworkSettings">
+            <HBox.margin>
+                <Insets right="5"/>
+            </HBox.margin>
+        </Button>
+        <Button text="Clean" onAction="#cleanTextarea">
+            <HBox.margin>
+                <Insets />
+            </HBox.margin>
+        </Button>
+    </HBox>
 </VBox>
 

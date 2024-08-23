@@ -20,7 +20,6 @@
             <Tab text="Web" styleClass="tab" >
                 <BorderPane fx:id="webTab" styleClass="borPane" />
             </Tab>
-
         </TabPane>
     </top>
 </BorderPane>
